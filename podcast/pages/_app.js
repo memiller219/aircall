@@ -4,12 +4,18 @@ import Feature from "../components/Feature";
 import Grid from "../components/Grid";
 import Page from "../components/Page";
 import Teaser from "../components/Teaser";
+import Navbar from "../components/Navbar";
+import Layout from "../components/Layout";
+import TopNav from "../components/TopNav";
+import SubHeader from "../components/SubHeader";
 
 const components = {
-  feature: Feature,
-  grid: Grid,
+  TopNav: TopNav,
+  Navbar: Navbar,
+  SubHeader: SubHeader,
   teaser: Teaser,
   page: Page,
+  layout: Layout,
 };
 
 storyblokInit({
@@ -17,8 +23,8 @@ storyblokInit({
   use: [apiPlugin],
   components,
   apiOptions: {
-    region: ''
-  }
+    region: "",
+  },
 });
 
 function MyApp({ Component, pageProps }) {
