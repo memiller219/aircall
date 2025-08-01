@@ -1,29 +1,24 @@
-import Layout from "./Layout";
+import { ChevronDown } from "lucide-react";
 
 export default function TopNav({ blok }) {
   return (
     <>
-      <Layout>
-        <div className="flex justify-end items-center text-sm px-6 py-2">
-          <span className="mr-6 text-gray-600">{blok.phone_number}</span>
-          <button
-            href="/contact"
-            className="mr-6 text-gray-600 hover:underline"
-          >
-            {blok.contact_us}
-          </button>
-          <button
-            href="/login"
-            className="mr-4 px-4 py-1 border border-emerald-500 text-emerald-500 rounded hover:bg-emerald-50"
-          >
-            {blok.login_text}
-          </button>
-          <button className="px-3 py-1 border border-gray-300 rounded text-sm">
-            {blok.language_code} ▼
-          </button>
+      <div className="bg-white">
+        <div className="bg-white border-b border-gray-100">
+          <div className="pb-1 -mt-3 flex items-center justify-end text-sm text-gray-600 gap-2 max-w-7xl mx-auto">
+            <div className="flex gap-8 mr-8">
+              <span>{blok.phone_number}</span>
+              <span>{blok.contact_us}</span>
+            </div>
+            <button className="border border-aircall-green text-aircall-green px-4 py-1 rounded text-sm font-semibold">
+              {blok.login_text}
+            </button>
+            <button className="flex items-center gap-2 border border-gray-300 px-3 py-1 rounded text-sm">
+              {blok.language_code} <ChevronDown className="w-3 h-3" />
+            </button>
+          </div>
         </div>
-      </Layout>
-      <hr />
+      </div>
     </>
   );
 }

@@ -1,20 +1,15 @@
 import Link from "next/link";
-import Layout from "./Layout";
+import { ChevronDown } from "lucide-react";
 
 export default function Navbar({ blok }) {
-  console.log(blok.nav_items);
-
   return (
-    <header>
-      {/* Main Navbar */}
-      <Layout>
-        <div className="flex justify-between items-center px-6 py-4">
-          {/* Logo */}
-          <Link href="/">
-            <img src={blok.logo?.filename} alt="Logo" className="h-6 md:h-8" />
-          </Link>
-          {/* Nav Items */}
-          <nav className="flex items-center space-x-12 text-sm font-medium text-gray-800">
+    <header className="bg-white h-95">
+      <div className="max-w-7xl mx-auto py-6">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center">
+            <img src={blok.logo?.filename} alt="Aircall" className="h-10" />
+          </div>
+          <nav className="hidden md:flex items-center space-x-12 text-aircall-grey-900">
             {blok.nav_items.map((item) =>
               item.type === "link" ? (
                 <Link
@@ -29,31 +24,18 @@ export default function Navbar({ blok }) {
                   <span className="hover:text-emerald-500 flex items-center gap-1">
                     {item.label}
                     {item.type[0] !== "link" && (
-                      <svg
-                        className="w-3 h-3"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 011.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <ChevronDown className="w-3 h-3 opacity-30" />
                     )}
                   </span>
                 </div>
               )
             )}
           </nav>
-
-          <Link href="/signup">
-            <button className="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-5 py-2 rounded">
-              {blok.cta_text}
-            </button>
-          </Link>
+          <button className="bg-aircall-green text-white px-5 py-3 rounded font-semibold">
+            {blok.cta_text}
+          </button>
         </div>
-      </Layout>
+      </div>
     </header>
   );
 }

@@ -1,8 +1,16 @@
-
 export default function Layout({ children }) {
   return (
-    <div className=" max-w-[1440px] mx-auto px-6 md:px-12 xl:px-24 flex flex-col">
-      {children}
+    <div className="flex flex-col min-h-screen font-sans">
+      <nav>
+        <div className="px-[190px]">
+          <div className="grid grid-cols-[repeat(12,70px)] gap-[20px]"></div>
+        </div>
+      </nav>
+      <main className="flex-1 px-[190px]">
+        <div className="grid grid-cols-[repeat(12,70px)] gap-[20px] w-[1120px]">
+          {children}
+        </div>
+      </main>
     </div>
   );
 }
