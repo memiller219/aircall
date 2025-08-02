@@ -8,6 +8,9 @@ import SubHeader from "../components/SubHeader";
 import HeroSection from "../components/HeroSection";
 import Releases from "../components/Releases";
 import ReleaseCard from "../components/ReleaseCard";
+import LatestArticles from "../components/LatestArticles";
+import Articles from "../components/Articles";
+import Footer from "../components/Footer";
 
 const components = {
   TopNav: TopNav,
@@ -16,12 +19,15 @@ const components = {
   HeroSection: HeroSection,
   releases: Releases,
   ReleaseCard: ReleaseCard,
+  articles: Articles,
+  LatestArticles: LatestArticles,
+  footer: Footer,
   page: Page,
   layout: Layout,
 };
 
 storyblokInit({
-  accessToken: process.env.STORYBLOK_ACCESS_TOKEN,
+  accessToken: "LnkF2XqnxiDYQye0HP7Tmwtt",
   use: [apiPlugin],
   components,
   apiOptions: {

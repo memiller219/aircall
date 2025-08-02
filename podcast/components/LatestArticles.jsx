@@ -1,0 +1,62 @@
+export default function LatestArticles({ blok }) {
+  const card = blok.card || [];
+
+  const categoryColors = {
+    sales: "text-blue-500",
+    product: "text-pink-500",
+    marketing: "text-green-500",
+    support: "text-purple-500",
+    life: "text-green-500",
+    engineering: "text-yellow-500",
+    default: "text-aircall-grey-400",
+  };
+
+  return (
+    <section className="bg-white py-18">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-12 gap-x-5 gap-y-12">
+          {card.map((article, index) => {
+            const category = article.category?.toLowerCase();
+            const categoryClass =
+              categoryColors[category] || categoryColors.default;
+
+            return (
+              <div
+                key={index}
+                className="col-span-12 md:col-span-6 xl:col-span-3 flex flex-col gap-[14px]"
+              >
+                <img
+                  src={article.article_image?.filename}
+                  alt={article.article_image?.alt || "Article Image"}
+                  className="w-full h-[140px] aspect-[4/3] object-cover rounded-[5px]"
+                />
+
+                <div className="flex items-center gap-2 text-sm font-semibold uppercase">
+                  <span className={categoryClass}>
+                    {article.category_title}
+                  </span>
+                  {article.duration && (
+                    <>
+                      <div className="w-1 h-1 bg-aircall-grey-300 rounded-full" />
+                      <span className="text-aircall-grey-300">
+                        {article.duration}
+                      </span>
+                    </>
+                  )}
+                </div>
+
+                <h3 className="text-xl text-left font-semibold text-aircall-grey-900 leading-[27px]">
+                  {article.article_title}
+                </h3>
+
+                <p className="text-left text-aircall-grey-500 text-medium leading-[24px]">
+                  {article.article_description}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}

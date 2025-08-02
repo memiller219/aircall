@@ -14,7 +14,7 @@ export default function Releases({ blok }) {
             <ChevronDown className="w-4 h-4" />
           </div>
         </div>
-        <div className="grid grid-cols-12 gap-12">
+        <div className="grid grid-cols-12 gap-x-5">
           {blok.card.map((cardInfo, index) => (
             <div
               key={index}

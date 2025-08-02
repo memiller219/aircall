@@ -8,7 +8,7 @@ export default function ReleasesCard({ info }) {
       <img
         src={info.card_image?.filename}
         alt="podcast image"
-        className={`w-full aspect-square rounded-xl mb-4 ${
+        className={`w-[305px] aspect-square rounded-xl mb-4 ${
           hasSeason && hasDuration ? "shadow-lg" : ""
         }`}
       />
