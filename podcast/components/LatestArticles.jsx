@@ -13,8 +13,8 @@ export default function LatestArticles({ blok }) {
 
   return (
     <section className="bg-white py-18">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-12 gap-x-5 gap-y-12">
+      <div className="text-left max-w-[311px] lg:max-w-[960px] lg:flex lg:items-center lg: justify-between mx-auto xl:flex xl:items-center xl:justify-between xl:max-w-[1140px] ">
+        <div className="mx-auto max-w-[311px] lg:max-w-[960px] xl:max-w-[1140px] lg:grid lg:grid-cols-12 lg:gap-x-5">
           {card.map((article, index) => {
             const category = article.category?.toLowerCase();
             const categoryClass =

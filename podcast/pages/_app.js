@@ -2,7 +2,6 @@ import "../styles/globals.css";
 import { storyblokInit, apiPlugin } from "@storyblok/react";
 import Page from "../components/Page";
 import Navbar from "../components/Navbar";
-import Layout from "../components/Layout";
 import TopNav from "../components/TopNav";
 import SubHeader from "../components/SubHeader";
 import HeroSection from "../components/HeroSection";
@@ -23,7 +22,6 @@ const components = {
   LatestArticles: LatestArticles,
   footer: Footer,
   page: Page,
-  layout: Layout,
 };
 
 storyblokInit({
