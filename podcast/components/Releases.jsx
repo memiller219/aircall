@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { Calendar, Star, Tag, ChevronDown } from "lucide-react";
 import ReleasesCard from "./ReleaseCard";
 
 export default function Releases({ blok }) {
   const [sortOption, setSortOption] = useState(null);
   const [showDropdown, setShowDropdown] = useState(false);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
 
   const options = [
     { label: "Date", value: "date", icon: <Calendar className="w-4 h-4" /> },
@@ -20,7 +23,7 @@ export default function Releases({ blok }) {
 
   return (
     <>
-      <div className="text-left max-w-[311px] lg:max-w-[960px] lg:flex lg:items-center lg: justify-between mx-auto xl:flex xl:items-center xl:justify-between xl:max-w-[1140px]">
+      <div className="lg:-mt-[50px] text-left max-w-[311px] lg:max-w-[960px] lg:flex lg:items-center lg: justify-between mx-auto xl:flex xl:items-center xl:justify-between xl:max-w-[1140px]">
         <h2 className="text-xl font-semibold text-black">
           The latest releases
         </h2>
@@ -62,13 +65,22 @@ export default function Releases({ blok }) {
           </div>
         </div>
       </div>
-      <div className="mx-auto max-w-[311px] lg:max-w-[960px] xl:max-w-[1140px] lg:grid lg:grid-cols-12 lg:gap-x-5">
+      <motion.div
+        ref={ref}
+        initial={{ opacity: 0, y: 40 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.8 }}
+        className="mx-auto max-w-[311px] lg:max-w-[960px] xl:max-w-[1140px] lg:grid lg:grid-cols-12 lg:gap-x-5"
+      >
         {blok.card.map((cardInfo, index) => (
-          <div key={index} className="py-5 lg:grid-span-2 md:col-span-4 xl:col-span-3">
+          <div
+            key={index}
+            className="py-5 lg:grid-span-2 md:col-span-4 xl:col-span-3"
+          >
             <ReleasesCard info={cardInfo} />
           </div>
         ))}
-      </div>
+      </motion.div>
     </>
   );
 }

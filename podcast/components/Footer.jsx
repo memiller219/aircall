@@ -1,3 +1,5 @@
+"use client";
+
 export default function Footer({ blok }) {
   const columns = blok.columns || [];
 

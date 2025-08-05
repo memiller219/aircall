@@ -4,6 +4,7 @@ import Page from "../components/Page";
 import Navbar from "../components/Navbar";
 import TopNav from "../components/TopNav";
 import SubHeader from "../components/SubHeader";
+import NavItem from "../components/NavItem";
 import HeroSection from "../components/HeroSection";
 import Releases from "../components/Releases";
 import ReleaseCard from "../components/ReleaseCard";
@@ -15,6 +16,7 @@ const components = {
   TopNav: TopNav,
   Navbar: Navbar,
   SubHeader: SubHeader,
+  NavItem: NavItem,
   HeroSection: HeroSection,
   releases: Releases,
   ReleaseCard: ReleaseCard,
@@ -25,7 +27,7 @@ const components = {
 };
 
 storyblokInit({
-  accessToken: "LnkF2XqnxiDYQye0HP7Tmwtt",
+  accessToken: process.env.STORYBLOK_ACCESS_TOKEN,
   use: [apiPlugin],
   components,
   apiOptions: {

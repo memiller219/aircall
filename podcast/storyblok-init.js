@@ -1,8 +1,7 @@
 import { storyblokInit, apiPlugin } from "@storyblok/react";
 
-
 storyblokInit({
-  accessToken: "LnkF2XqnxiDYQye0HP7Tmwtt",
+  accessToken: process.env.STORYBLOK_ACCESS_TOKEN,
   use: [apiPlugin],
   components,
   apiOptions: {

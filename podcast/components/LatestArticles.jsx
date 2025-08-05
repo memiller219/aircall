@@ -1,3 +1,8 @@
+"use client";
+
+import Image from "next/image";
+import { motion } from "framer-motion";
+
 export default function LatestArticles({ blok }) {
   const card = blok.card || [];
 
@@ -21,14 +26,18 @@ export default function LatestArticles({ blok }) {
               categoryColors[category] || categoryColors.default;
 
             return (
-              <div
+              <motion.div
                 key={index}
-                className="col-span-12 md:col-span-6 xl:col-span-3 flex flex-col gap-[14px]"
+                whileHover={{ y: -5, scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+                className="col-span-12 md:col-span-3 xl:col-span-3 flex flex-col gap-[14px]"
               >
-                <img
+                <Image
                   src={article.article_image?.filename}
                   alt={article.article_image?.alt || "Article Image"}
-                  className="w-full h-[140px] aspect-[4/3] object-cover rounded-[5px]"
+                  className="object-cover rounded-[5px]"
+                  height={140}
+                  width={280}
                 />
 
                 <div className="flex items-center gap-2 text-sm font-semibold uppercase">
@@ -49,10 +58,10 @@ export default function LatestArticles({ blok }) {
                   {article.article_title}
                 </h3>
 
-                <p className="text-left text-aircall-grey-500 text-medium leading-[24px]">
+                <p className="mb-10 text-left text-aircall-grey-500 text-medium leading-[24px]">
                   {article.article_description}
                 </p>
-              </div>
+              </motion.div>
             );
           })}
         </div>

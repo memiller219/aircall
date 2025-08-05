@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 
 export default function ReleasesCard({ info }) {
@@ -22,9 +24,11 @@ export default function ReleasesCard({ info }) {
             hasCardContent ? "shadow-xl" : ""
           } relative overflow-hidden rounded-xl transition duration-300`}
         >
-          <img
+          <Image
             src={info.card_image?.filename}
             alt="podcast"
+            height={200}
+            width={200}
             className={`w-full aspect-square object-cover transition duration-300 ${
               hasCardContent ? "group-hover:brightness-75" : ""
             }`}
@@ -33,10 +37,12 @@ export default function ReleasesCard({ info }) {
           {hasCardContent && (
             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
               <div className="flex items-center justify-center">
-                <img
+                <Image
                   src={info.play_hover?.filename}
                   alt="Play"
                   className="w-25 h-25"
+                   height={100}
+            width={100}
                 />
               </div>
             </div>
@@ -69,7 +75,8 @@ export default function ReleasesCard({ info }) {
           {hasTitle && (
             <button className="flex items-center gap-2 text-black mt-2 cursor-pointer">
               <div className="w-6 h-6 bg-aircall-green/15 rounded-full flex items-center justify-center">
-                <img src={info.playButton?.filename} alt="Play" />
+                <Image src={info.playButton?.filename} alt="Play"  height={20}
+            width={20}/>
               </div>
               <span className="font-medium">Listen Now</span>
             </button>
